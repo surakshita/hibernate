@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean class="com.xworkz.collections.ListCollection"
+		id="listCollection">
+		<constructor-arg name="country"
+			value="${listCollection.country}">
+		</constructor-arg>
+	</bean>
+
+	<bean class="com.xworkz.collections.MapCollection"
+		id="mapCollection">
+
+		<constructor-arg name="movies">
+			<map>
+				<entry key="${mapCollection.movies.key}"
+					value="${mapCollection.movies.value}"></entry>
+
+			</map>
+		</constructor-arg>
+
+	</bean>
+
+	<bean class="com.xworkz.collections.SetCollection"
+		id="setCollection">
+		<constructor-arg name="wondersOfWorld"
+			value="${setCollection.wondersOfWorld}">
+
+		</constructor-arg>
+	</bean>
+
+
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+		id="propertyPlaceholderConfigurer">
+		<property name="locations" value="application.properties"></property>
+	</bean>
+
+
+
+
+</beans>
