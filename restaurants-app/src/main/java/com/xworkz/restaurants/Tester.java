@@ -1,8 +1,11 @@
 package com.xworkz.restaurants;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.xworkz.restaurants.dao.RestaurantsDaoImpl;
+import com.xworkz.restaurants.dto.RestaurantsDto;
 
 public class Tester {
 
@@ -20,6 +23,13 @@ public class Tester {
 
 		// delete
 		dao.deleteById(6);
+		
+		//list 
+		List<RestaurantsDto> dtoList=dao.readAllRecords();
+		System.out.println("list of restaurants");
+		for (RestaurantsDto restaurantsDto : dtoList) {
+			System.out.println(restaurantsDto);
+		}
 
 		ClassPathXmlApplicationContext container = (ClassPathXmlApplicationContext) context;
 		container.close();
